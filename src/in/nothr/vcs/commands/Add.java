@@ -6,7 +6,7 @@ import java.nio.file.StandardCopyOption;
 import java.security.NoSuchAlgorithmException;
 import in.nothr.vcs.utils.HashUtil;
 
-public class Add {
+public class Add extends Commit{
     private static final String REPO_DIR = ".jit";
     private static final String OBJECTS_DIR = ".jit" + File.separator + "objects";
     private static final String INDEX_FILE = REPO_DIR + File.separator + "index";

@@ -2,7 +2,7 @@ package in.nothr.vcs.commands;
 
 import java.io.File;
 
-public class Init {
+public class Init extends Add{
     private static final String REPO_DIR = ".jit";
     private static final String OBJECTS_DIR = REPO_DIR + File.separator + "objects";
     private static final String COMMITS_DIR = REPO_DIR + File.separator + "refs" + File.separator + "heads";

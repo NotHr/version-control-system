@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Commit {
+public class Commit extends Revert{
 
     private static final String REPO_DIR = ".jit";
     private static final String INDEX_FILE = REPO_DIR + File.separator + "index";
