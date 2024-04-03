@@ -27,12 +27,12 @@ public class VCS extends Init{
                 }
                 VCS.commit(args[1]);
                 break;
-            case "revert":
+            case "reset":
                 if (args.length < 2) {
                     System.err.println("Error: Missing commit hash.");
                     return;
                 }
-                VCS.revert(args[1]);
+                VCS.reset(args[1], ResetMode.SOFT);
                 break;
             default:
                 System.err.println("Error: Unknown command.");
