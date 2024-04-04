@@ -32,7 +32,7 @@ public class VCS extends Init{
                     System.err.println("Error: Missing commit hash.");
                     return;
                 }
-                VCS.reset(args[1], ResetMode.SOFT);
+                VCS.reset(args[1], args[2]);
                 break;
             default:
                 System.err.println("Error: Unknown command.");

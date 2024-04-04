@@ -15,7 +15,7 @@ public class Reset {
     private static final String COMMITS_DIR = REPO_DIR + File.separator + "refs" + File.separator + "heads";
     private static final String INDEX_FILE = REPO_DIR + File.separator + "index";
 
-    public static void reset(String commitHash, ResetMode mode) {
+    public static void reset(String commitHash, String mode) {
         try {
             File commitFile = new File(COMMITS_DIR + File.separator + commitHash);
             if (!commitFile.exists()) {
@@ -26,10 +26,10 @@ public class Reset {
             List<String> commitEntries = readCommitEntries(commitFile);
 
             switch (mode) {
-                case SOFT:
+                case "--SOFT":
                     Files.copy(commitFile.toPath(), new File(COMMITS_DIR + File.separator + "HEAD").toPath(), StandardCopyOption.REPLACE_EXISTING);
                     break;
-                case MIXED:
+                case "--MIXED":
                     Files.copy(commitFile.toPath(), new File(COMMITS_DIR + File.separator + "HEAD").toPath(), StandardCopyOption.REPLACE_EXISTING);
                     updateIndexEntries(commitEntries);
                     break;
@@ -55,11 +55,5 @@ public class Reset {
     private static void updateIndexEntries(List<String> commitEntries) throws IOException {
         Path indexPath = Paths.get(INDEX_FILE);
         Files.write(indexPath, commitEntries);
-    }
-
-
-    public static enum ResetMode {
-        SOFT,
-        MIXED
     }
 }
